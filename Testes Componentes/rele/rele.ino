@@ -1,5 +1,5 @@
 # define rele 13  // Relé conectada ao pino 13 do arduino
-const int botao = 2;  // Botão conectado ao pino 12 do arduino
+const int botao = 2;  // Botão conectado ao pino 2 do arduino
 int statusDoBotao = 0;  
 int led1 = 3, led2 = 4;  // Led que irão indicar se o motor está ligado ou desligado
 
