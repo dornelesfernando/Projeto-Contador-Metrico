@@ -41,21 +41,6 @@ void loop(){
   valorPedido = 1;
   voltasEncoder = valorPedido / metrosPorVolta;
   Serial.println(voltasEncoder);
-
-
-
-
-
-
-
-
-
-
-
-/*statusDoBotaoLimpa = digitalRead(botaoLimpa);
-if (statusDoBotaoLimpa == HIGH)
-  limpa();
-}  */
 }
 
 void interrupcao (){
