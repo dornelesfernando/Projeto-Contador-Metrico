@@ -14,7 +14,7 @@ ___
 
 - VCC --> 5v
 
-- SDA --> A4
+- SDA --> Porta Analogica A4
 
-- SCL --> A5
+- SCL --> Porta Analogica A5
 </div>
