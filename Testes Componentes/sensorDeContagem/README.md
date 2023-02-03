@@ -1,7 +1,7 @@
 <h1>Controlando voltas de um motor</h1>
 
 <p>
-Neste exemplo usamos um Sensor de Sensor de Velocidade/Contagem para verificar a quantidade de voltas de um motor, para isso utilizamos um disco encoder preso ao motor para que o sensor possa realizar a leitura.
+Neste exemplo usamos um Sensor de Velocidade/Contagem para verificar a quantidade de voltas de um motor, para isso utilizamos um disco encoder preso ao motor para que o sensor possa realizar a leitura.
 </p>
 
 <p>Para ligar e desligar o motor utilizamos uma relé controlada por um Push Button</p>
