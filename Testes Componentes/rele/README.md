@@ -20,40 +20,48 @@ Neste teste usamos uma relé para ligar e desligar um motor, além disso usamos 
 
 <strong>Componente --> Arduino</strong>
 
+___
 
-</br><h2>Relé</h2>
+<h2>Relé</h2>
 
-<h3>DC+ --> 5v</h3>
-<h3>DC- --> GND</h3>
-<h3>IN --> Pino 13</h3>
-</br>
-<h3>NC (Normalmente Fechado) --> Não conectado</h3>
-<h3>COM (Comum) --> 5v da <strong>fonte de bancada</strong></h3>
-<h3>NO (Normalmente Aberto) --> VCC do <strong>motor</strong></h3>
+- DC+ --> 5v
 
-____
+- DC- --> GND
 
-<h2>Botão</h2>
+- IN --> Porta 13
 
-<h3>GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong></h3>
-<h3>VCC --> 5v</h3>
-<h3>Sinal --> Pino 2</h3>
+___
 
-____
+- NC (Normalmente Fechado) --> Não conectado
 
-<h2>Motor</h2>
-<h3>GND --> GND da <strong>fonte de bancada</strong></h3>
-<h3>VCC --> NO da <strong>relé</strong></h3>
+- COM (Comum) --> 5v da <strong>fonte de bancada</strong>
 
-____
+- NO (Normalmente Aberto) --> VCC do <strong>motor</strong>
 
-<h2>Led Vermelho</h2>
-<h3>GND --> GND</h3>
-<h3>VCC --> Pino 3 ligado a um resitor de <strong>470Ω</strong></h3>
 
-____
+</br><h2>Botão</h2>
 
-<h2>Led Verde</h2>
-<h3>GND --> GND </h3>
-<h3>VCC --> Pino 4 ligado a um resitor de <strong>470Ω</strong></h3>
+- GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong>
+
+- Sinal --> Porta 2
+
+
+</br><h2>Motor</h2>
+
+- GND --> GND da <strong>fonte de bancada</strong>
+
+- VCC --> NO da <strong>relé</strong>
+
+
+</br><h2>Led Vermelho</h2>
+
+- GND --> GND
+
+- VCC --> Porta 3 ligado a um resitor de <strong>470Ω</strong>
+
+</br><h2>Led Verde</h2>
+
+GND --> GND
+
+VCC --> Porta 4 ligado a um resitor de <strong>470Ω</strong>
 </div>
