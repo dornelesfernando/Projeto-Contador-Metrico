@@ -39,11 +39,21 @@ ___
 - NO (Normalmente Aberto) --> VCC do <strong>motor</strong>
 
 
-</br><h2>Botão</h2>
+</br><h2>Botão1</h2>
 
 - GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong>
 
-- Sinal --> Porta 2
+- VCC --> 5v
+
+- Sinal --> Porta 11 
+
+</br><h2>Botão2</h2>
+
+- GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong>
+
+- VCC --> 5v
+
+- Sinal --> Porta 12
 
 
 </br><h2>Motor</h2>
@@ -57,11 +67,11 @@ ___
 
 - GND --> GND
 
-- VCC --> Porta 3 ligado a um resitor de <strong>470Ω</strong>
+- VCC --> Porta 2 ligado a um resitor de <strong>470Ω</strong>
 
 </br><h2>Led Verde</h2>
 
 GND --> GND
 
-VCC --> Porta 4 ligado a um resitor de <strong>470Ω</strong>
+VCC --> Porta 5 ligado a um resitor de <strong>470Ω</strong>
 </div>
