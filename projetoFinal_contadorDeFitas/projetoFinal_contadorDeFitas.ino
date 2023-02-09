@@ -73,11 +73,13 @@ void loop(){
                     if(tecla_pressionada == '#'){
                        Serial.println("Botão pause pressionado");
                        Serial.println("Relé desligada");
+                       Serial.println();
                        return;
                     }
                 }  
               for (i; i < 1; i++){ // Imprime apenas uma vez na Serial
                 Serial.println("Relé iniciada");
+                Serial.println();
               }
 
               digitalWrite(rele, HIGH);  // Liga relé
@@ -103,6 +105,7 @@ void loop(){
          completo();  // Reinicia parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
          Serial.println("Relé desligada");
          Serial.println("Finalizado");
+         Serial.println(); Serial.println();
         }
       else{
           digitalWrite(rele, LOW);  // Caso o botão iniciar não seja apertado a relé permanece desligada  
@@ -129,12 +132,13 @@ void loop(){
                 voltasEncoder = valorPedido / centimetrosPorVolta;  // Inicia variáveis de controle
 
                 for(p; p < 1; p++){  // Imprime apenas uma vez na Serial
-                  Serial.println("O usuário indicou  um valor");
+                  Serial.println("O usuário indicou um valor");
                 }
               }
 
               if(tecla_pressionada == '*'){  // Limpa o valor informado pelo Usuário
                 Serial.println("Valor indicado pelo usuário resetado");
+                Serial.println();
                 p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
                 valorConfigurado = "";
                 lcd.setCursor(12,0);
@@ -160,6 +164,7 @@ void resetar(){  // Função responsavel por resetar as variáveis de contrle do
 
 void completo(){  // Função responsavel por reiniciar parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
   delay(1000);
+  p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
   cont = 0;  
   contadorVoltas = 0;
   valorAtual = 0;
