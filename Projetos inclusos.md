@@ -43,3 +43,8 @@ Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-d
 - Neste exemplo faremos o mesmo teste do sensor de contagem, porém iremos imprimir os valores recebidos em um Lcd 16x2.
 
 Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-de-fita/tree/main/Testes%20integrando%20m%C3%B3dulos/sensorDeContagemAndLcd
+
+---
+
+</br><h1>Projeto final - Contador de Fitas</h1>
+- <b>Este é o projeto principal deste repositório.</b> O projeto consiste em criar uma forma de contabilizar o quanto um motor enrola de fita de uma maneira automatica.
