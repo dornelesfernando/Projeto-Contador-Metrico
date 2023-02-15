@@ -11,7 +11,7 @@ ___
 
 - Pino 1 --> Não conectado
 - Pino 2 --> Porta 9
-- Pino 3 --> Porta 5
+- Pino 3 --> Porta 4
 - Pino 4 --> Porta 10
 - Pino 5 --> Porta 7
 - Pino 6 --> Porta 8
