@@ -21,19 +21,19 @@ Keypad teclado1 = Keypad( makeKeymap(teclas), pinosLinhas, pinosColunas, 4, 3);
 
 // Sensor de Contagem
 volatile int cont = 0;  // Contagem de furos do disco encoder
-int contadorVoltas = 0;  // Contagem de voltas do disco encoder
+volatile int contadorVoltas = 0;  // Contagem de voltas do disco encoder
 
-// Botão Desliga
-const int botaoLiga = 11;  // Botão conectado ao pino 12 do arduino
+// Botão Liga
+const int botaoLiga = 11;  // Botão conectado ao pino 11 do arduino
 int statusDoBotaoLiga = 0; 
 
-// Botão Desliga
-const int botaoDesliga = 12;  // Botão conectado ao pino 12 do arduino
-int statusDoBotaoDesliga = 0;
+// Botão Pausa
+const int botaoPausa = 12;  // Botão conectado ao pino 12 do arduino
+int statusDoBotaoPausa = 0;
 
 // Variáveis gerais
 int valorPedido = 0;  // Armazena o valor informado pelo usuário
-float centimetrosPorVolta = 10;  // Alterar para o valor em centimetros que seu motor faz por volta
+float centimetrosPorVolta = 10;  // Alterar para o valor em centimetros que seu motor faz por volta ***********
 int voltasEncoder = 0;  // Armazena a quantidade de voltas que o motor terá que dar para satisfazer o pedido do usuário
 int valorAtual = 0;  // Monitora a distância já percorrida
 bool desliga = false;
@@ -43,18 +43,19 @@ static String valorConfigurado = "";
 int i = 0;
 int p = 0;
 
-void setup(){
+void setup(){    
     pinMode(rele, OUTPUT);
     pinMode(3, INPUT);
+    //digitalWrite(rele, LOW);
     pinMode(botaoLiga, INPUT);
-    pinMode(botaoDesliga, INPUT);
-    attachInterrupt(digitalPinToInterrupt(3), interrupcao, RISING);
+    pinMode(botaoPausa, INPUT);
+    attachInterrupt(digitalPinToInterrupt(3), interrupcao, CHANGE);
 
     lcd.init();  // Inicializa o lcd
     lcd.backlight();  // Liga a Luz de Fundo
-    lcd.print("Val. Confg: ");
+    lcd.print("Config: ");
     lcd.setCursor(0, 1);
-    lcd.print("Val. atual: ");  
+    lcd.print("Medicao: ");  
         Serial.begin(9600);  // Inicia a Serial
         Serial.println("Sistema iniciado"); 
         Serial.println();        
@@ -67,14 +68,17 @@ void loop(){
          
           Serial.println("Botão iniciar pressionado");
           
-          for(contadorVoltas; contadorVoltas <= voltasEncoder; interrupcao()){  
+          for(contadorVoltas; contadorVoltas <= voltasEncoder;){  
               char tecla_pressionada = teclado1.getKey();
                 if(tecla_pressionada){  // Se a tecla "#" for pressionada, pausa o motor
                     if(tecla_pressionada == '#'){
-                       Serial.println("Botão pause pressionado");
-                       Serial.println("Relé desligada");
-                       Serial.println();
-                       return;
+                       Serial.println("Botão finalizar pressionado");
+                  desliga = true;
+                  if(desliga == true){  // Desliga a relé
+                      digitalWrite(rele, LOW);           
+                   }
+                  Serial.println("Variáveis de controle resetadas");
+                  resetar();  // Reseta as variáveis de controle
                     }
                 }  
               for (i; i < 1; i++){ // Imprime apenas uma vez na Serial
@@ -84,18 +88,16 @@ void loop(){
 
               digitalWrite(rele, HIGH);  // Liga relé
               valorAtual = contadorVoltas * centimetrosPorVolta;  // Inicia/atualiza a variável de controle
-              lcd.setCursor(12, 1);
+              lcd.setCursor(9, 1);
               lcd.print(valorAtual);  // Mostra no Lcd
+              lcd.setCursor(14,1);
+              lcd.print("Cm");
          
-            statusDoBotaoDesliga = digitalRead(botaoDesliga);
-              if(statusDoBotaoDesliga == HIGH){  // Se o botão resetar for pressionado
-                  Serial.println("Botão finalizar pressionado");
-                  desliga = true;
-                  if(desliga == true){  // Desliga a relé
-                      digitalWrite(rele, LOW);           
-                   }
-                  Serial.println("Variáveis de controle resetadas");
-                  resetar();  // Reseta as variáveis de controle
+            statusDoBotaoPausa = digitalRead(botaoPausa);
+              if(statusDoBotaoPausa == HIGH){  // Se o botão resetar for pressionado                                   Serial.println("Botão pause pressionado");
+                       Serial.println("Relé desligada");
+                       Serial.println();
+                       return;
                }
                            
               if(desliga == true || contadorVoltas >= voltasEncoder){  // Se a variável de controle for ativada ou o motor completar as volas
@@ -110,24 +112,16 @@ void loop(){
       else{
           digitalWrite(rele, LOW);  // Caso o botão iniciar não seja apertado a relé permanece desligada  
         }
-
-        statusDoBotaoDesliga = digitalRead(botaoDesliga);
-          if(statusDoBotaoDesliga == HIGH){  // Se o botão resetar for pressionado durante o pause ou sem iniciar reseta o sistema completamente
-             contadorVoltas = voltasEncoder + 1;
-             desliga = true;
-             if(desliga == true){
-                digitalWrite(rele, LOW);           
-              }
-            resetar();
-            completo();
-           }
      
      char tecla_pressionada = teclado1.getKey();  // Localiza a tecla pressionada e adiciona em uma variável
           if(tecla_pressionada){
              if(tecla_pressionada != '*' && tecla_pressionada != '#'){  // Coleta os valores informados pelo Usuário
                 valorConfigurado += tecla_pressionada;
-                lcd.setCursor(12,0);
+                lcd.setCursor(9, 0);
                 lcd.print(valorConfigurado);
+                lcd.setCursor(14,0);
+                lcd.print("Cm");
+                
                 valorPedido = valorConfigurado.toInt();
                 voltasEncoder = valorPedido / centimetrosPorVolta;  // Inicia variáveis de controle
 
@@ -142,8 +136,17 @@ void loop(){
                 p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
                 valorConfigurado = "";
                 lcd.setCursor(12,0);
-                lcd.print("    ");
+                lcd.print("    ");   
               }   
+              if(tecla_pressionada == '#'){
+                contadorVoltas = voltasEncoder + 1;
+             desliga = true;
+             if(desliga == true){
+                digitalWrite(rele, LOW);           
+              }
+            resetar();
+            completo();
+              }
        }
 }
 
@@ -172,9 +175,9 @@ void completo(){  // Função responsavel por reiniciar parcialmente o sistema, 
   lcd.print("Finalizado");
   delay(2000);
   lcd.clear();
-  lcd.print("Val. Confg: ");
+  lcd.print("Config: ");
   lcd.setCursor(12,0);
   lcd.print(valorConfigurado);
   lcd.setCursor(0, 1);
-  lcd.print("Val. atual: ");
+  lcd.print("Medicao: ");
 }
