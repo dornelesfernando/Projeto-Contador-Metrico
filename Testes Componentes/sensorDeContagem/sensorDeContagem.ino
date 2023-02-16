@@ -11,7 +11,9 @@ void setup(){
 
 void loop (){
     delay(1000);
+    Serial.print("Quantidade de voltas:");
     Serial.println(volta);
+    Serial.print("Quantidade de furos:");
     Serial.println(cont);
 }
 
