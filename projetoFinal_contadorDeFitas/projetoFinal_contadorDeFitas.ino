@@ -58,78 +58,76 @@ void setup(){
 }
 
 void loop(){
-     statusDoBotaoLiga = digitalRead(botaoLiga);   
-       if (statusDoBotaoLiga == HIGH){  // Se o botão iniciar for apertado       
-          Serial.println("Botão iniciar pressionado");
-          cont = 0;
-          for(cont; cont <= qtdEncoder;){ 
-              statusDoBotaoPausa = digitalRead(botaoPausa); 
-              char tecla_pressionada = teclado1.getKey();
+  statusDoBotaoLiga = digitalRead(botaoLiga);
+  if(statusDoBotaoLiga == HIGH){  // Se o botão iniciar for apertado 
+     Serial.println("Botão iniciar pressionado");
+     cont = 0;
+     for(cont; cont <= qtdEncoder;){ 
+         statusDoBotaoPausa = digitalRead(botaoPausa); 
+         char tecla_pressionada = teclado1.getKey();
    
-              if(tecla_pressionada == '#'){
-                 Serial.println("Botão finalizar pressionado, se quiser resetar pressione novamente");         
-                 return;                   
-               } 
-              if(statusDoBotaoPausa == HIGH){  // Se o botão resetar for pressionado                                   Serial.println("Botão pause pressionado");
-                 Serial.println("Relé desligada");
-                 Serial.println();
-                 return;
-               }
-
-              digitalWrite(rele, HIGH);  // Liga relé
-              valorAtual = cont * centimetrosPorCont;  // Inicia/atualiza a variável de controle    
-              lcd.setCursor(9, 1);
-              lcd.print(valorAtual);  // Mostra no Lcd
-         
-              for (i; i < 1; i++){ // Imprime apenas uma vez na Serial
-                Serial.println("Relé iniciada");
-                Serial.println();
-              }                   
+         if(tecla_pressionada == '#'){
+            Serial.println("Botão finalizar pressionado, para resetar pressione novamente");         
+            return;                   
+            } 
+         if(statusDoBotaoPausa == HIGH){  // Se o botão resetar for pressionado
+            Serial.println("Botão pause pressionado");
+            Serial.println("Relé desligada");
+            Serial.println();
+            return;
            }
-           digitalWrite(rele, LOW);  // Desliga relé
-           lcd.clear();
-           lcd.print("Finalizado");
-           delay(2000);
-           i = 0;
-           completo();  // Reinicia parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
-           Serial.println("Relé desligada");
-           Serial.println("Finalizado");
-          Serial.println(); Serial.println();
-        }
-      else{
-          digitalWrite(rele, LOW);  // Caso o botão iniciar não seja apertado a relé permanece desligada  
-        }
+
+         digitalWrite(rele, HIGH);  // Liga relé
+         valorAtual = cont * centimetrosPorCont;  // Inicia/atualiza a variável de controle    
+         lcd.setCursor(9, 1);
+         lcd.print(valorAtual);  // Mostra no Lcd
+         
+         for(i; i < 1; i++){ // Imprime apenas uma vez na Serial
+             Serial.println("Relé iniciada");
+             Serial.println();
+            }                   
+         }
+     digitalWrite(rele, LOW);  // Desliga relé
+     lcd.clear();
+     lcd.print("Finalizado");
+     delay(2000);
+     i = 0;
+     completo();  // Reinicia parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
+     Serial.println("Relé desligada");
+     Serial.println("Finalizado");
+     Serial.println(); Serial.println();
+    }
+  else{
+      digitalWrite(rele, LOW);  // Caso o botão iniciar não seja apertado a relé permanece desligada  
+     }
      
-     char tecla_pressionada = teclado1.getKey();  // Localiza a tecla pressionada e adiciona em uma variável
-          if(tecla_pressionada){
-             if(tecla_pressionada != '*' && tecla_pressionada != '#'){  // Coleta os valores informados pelo Usuário
-                valorConfigurado += tecla_pressionada;
-                lcd.setCursor(9, 0);
-                lcd.print(valorConfigurado);
-                
-                valorPedido = valorConfigurado.toInt();
-                qtdEncoder = valorPedido / centimetrosPorCont;  // Inicia variáveis de controle
-
-                for(p; p < 1; p++){  // Imprime apenas uma vez na Serial
-                  Serial.println("O usuário indicou um valor");
-                }
-              }
-
-              if(tecla_pressionada == '*'){  // Limpa o valor informado pelo Usuário
-                Serial.println("Valor indicado pelo usuário resetado");
-                Serial.println();
-                p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
-                valorConfigurado = "";
-                lcd.setCursor(9,0);
-                lcd.print("     ");   
-              }   
-              if(tecla_pressionada == '#'){
-                cont = qtdEncoder + 1;
-                digitalWrite(rele, LOW);                       
-                resetar();
-                completo();
-              }
+  char tecla_pressionada = teclado1.getKey();  // Localiza a tecla pressionada e adiciona em uma variável
+  if(tecla_pressionada){
+     if(tecla_pressionada != '*' && tecla_pressionada != '#'){  // Coleta os valores informados pelo Usuário
+        valorConfigurado += tecla_pressionada;
+        lcd.setCursor(9, 0);
+        lcd.print(valorConfigurado);
+        valorPedido = valorConfigurado.toInt();
+        qtdEncoder = valorPedido / centimetrosPorCont;  // Inicia variáveis de controle
        }
+        for(p; p < 1; p++){  // Imprime apenas uma vez na Serial
+            Serial.println("O usuário indicou um valor");
+          }
+     if(tecla_pressionada == '*'){  // Limpa o valor informado pelo Usuário
+        Serial.println("Valor indicado pelo usuário resetado");
+        Serial.println();
+        p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
+        valorConfigurado = "";
+        lcd.setCursor(9,0);
+        lcd.print("     ");
+       }
+     if(tecla_pressionada == '#'){
+        cont = qtdEncoder + 1;
+        digitalWrite(rele, LOW);                       
+        resetar();
+        completo();
+      } 
+   }             
 }
 
 void interrupcao (){  // Função responsavel pelo controle do motor usando o encoder e o Sensor de Contagem
@@ -146,10 +144,10 @@ void resetar(){  // Função responsavel por resetar as variáveis de contrle do
 }
 
 void completo(){  // Função responsavel por reiniciar parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
-  delay(1000);
-  p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
+  p = 0;
   cont = 0;  
   valorAtual = 0;
+  delay(1000);
   lcd.clear();
   lcd.print("Tamanho:      Cm");
   lcd.setCursor(0, 1);
