@@ -48,3 +48,5 @@ Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-d
 
 </br><h1>Projeto final - Contador de Fitas</h1>
 - <b>Este é o projeto principal deste repositório.</b> O projeto consiste em criar uma forma de contabilizar o quanto um motor enrola de fita de uma maneira automatica.
+
+Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-de-fita/tree/main/projetoFinal_contadorDeFitas
