@@ -36,6 +36,7 @@ float centimetrosPorCont = 0.5;  // Alterar para o valor em centimetros que seu 
 int qtdEncoder = 0;  // Armazena a quantidade de voltas que o motor terá que dar para satisfazer o pedido do usuário
 int valorAtual = 0;  // Monitora a distância já percorrida
 static String valorConfigurado = "";
+int contAux = 0;
 
 // Variáveis de controle para o Monitor serial
 int i = 0;
@@ -61,16 +62,18 @@ void loop(){
   statusDoBotaoLiga = digitalRead(botaoLiga);
   if(statusDoBotaoLiga == HIGH){  // Se o botão iniciar for apertado 
      Serial.println("Botão iniciar pressionado");
-     cont = 0;
+     if(valorPedido != 0){
+      cont = contAux;
      for(cont; cont <= qtdEncoder;){ 
          statusDoBotaoPausa = digitalRead(botaoPausa); 
          char tecla_pressionada = teclado1.getKey();
-   
+         
+            
          if(tecla_pressionada == '#'){
             Serial.println("Botão finalizar pressionado, para resetar pressione novamente");         
             return;                   
             } 
-         if(statusDoBotaoPausa == HIGH){  // Se o botão resetar for pressionado
+         if(statusDoBotaoPausa == HIGH){  // Se o botão pausar for pressionado
             Serial.println("Botão pause pressionado");
             Serial.println("Relé desligada");
             Serial.println();
@@ -81,22 +84,37 @@ void loop(){
          valorAtual = cont * centimetrosPorCont;  // Inicia/atualiza a variável de controle    
          lcd.setCursor(9, 1);
          lcd.print(valorAtual);  // Mostra no Lcd
+
+              Serial.print("valorPedido ");
+     Serial.println(valorPedido);
+     Serial.print("valorConfigurado ");
+     Serial.println(valorConfigurado);
+     Serial.print("qtdEncoder ");
+     Serial.println(qtdEncoder);
+     Serial.print("cont ");
+     Serial.println(cont);
+     Serial.print("i ");
+     Serial.println(i);
+     Serial.print("p ");
+     Serial.println(p);
+     Serial.println();
          
          for(i; i < 1; i++){ // Imprime apenas uma vez na Serial
              Serial.println("Relé iniciada");
              Serial.println();
-            }                   
+            }
+                contAux = cont;                   
          }
      digitalWrite(rele, LOW);  // Desliga relé
      lcd.clear();
      lcd.print("Finalizado");
      delay(2000);
-     i = 0;
      completo();  // Reinicia parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
      Serial.println("Relé desligada");
      Serial.println("Finalizado");
      Serial.println(); Serial.println();
     }
+  }
   else{
       digitalWrite(rele, LOW);  // Caso o botão iniciar não seja apertado a relé permanece desligada  
      }
@@ -104,7 +122,9 @@ void loop(){
   char tecla_pressionada = teclado1.getKey();  // Localiza a tecla pressionada e adiciona em uma variável
   if(tecla_pressionada){
      if(tecla_pressionada != '*' && tecla_pressionada != '#'){  // Coleta os valores informados pelo Usuário
-        valorConfigurado += tecla_pressionada;
+        if(valorConfigurado.length() < 5){
+          valorConfigurado += tecla_pressionada;
+        }
         lcd.setCursor(9, 0);
         lcd.print(valorConfigurado);
         valorPedido = valorConfigurado.toInt();
@@ -118,8 +138,10 @@ void loop(){
         Serial.println();
         p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
         valorConfigurado = "";
-        lcd.setCursor(9,0);
-        lcd.print("     ");
+        valorPedido = 0;
+        qtdEncoder = 0;
+        lcd.setCursor(0, 0);
+        lcd.print("Tamanho:      Cm");
        }
      if(tecla_pressionada == '#'){
         cont = qtdEncoder + 1;
@@ -141,11 +163,14 @@ void resetar(){  // Função responsavel por resetar as variáveis de contrle do
   lcd.clear();
   lcd.print("Resetado");
   delay(1000);
+  cont = 0;
 }
 
 void completo(){  // Função responsavel por reiniciar parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
+  i = 0;
   p = 0;
   cont = 0;  
+  contAux = 0;
   valorAtual = 0;
   delay(1000);
   lcd.clear();
