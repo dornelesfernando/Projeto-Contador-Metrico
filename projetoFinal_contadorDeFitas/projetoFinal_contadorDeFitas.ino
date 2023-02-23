@@ -71,12 +71,13 @@ void loop(){
          if(tecla_pressionada == '#'){
             Serial.println("Botão resetar pressionado, para resetar pressione novamente");  
             Serial.println("Caso queira continuar aperte em iniciar");   
+            Serial.println("- Relé desligada");
             Serial.println();      
             return;                   
             } 
          if(statusDoBotaoPausa == HIGH){  // Se o botão pausar for pressionado
             Serial.println("Botão pause pressionado");
-            Serial.println("Relé desligada");
+            Serial.println("- Relé desligada");
             Serial.println();
             return;
            }
@@ -97,7 +98,7 @@ void loop(){
      lcd.print("Finalizado");
      delay(2000);
      completo();  // Reinicia parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
-     Serial.println("Relé desligada");
+     Serial.println("- Relé desligada");
      Serial.println("Finalizado");
      Serial.println(); Serial.println();
     }
