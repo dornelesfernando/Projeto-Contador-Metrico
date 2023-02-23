@@ -68,9 +68,10 @@ void loop(){
          statusDoBotaoPausa = digitalRead(botaoPausa); 
          char tecla_pressionada = teclado1.getKey();
          
-            
          if(tecla_pressionada == '#'){
-            Serial.println("Botão finalizar pressionado, para resetar pressione novamente");         
+            Serial.println("Botão resetar pressionado, para resetar pressione novamente");  
+            Serial.println("Caso queira continuar aperte em iniciar");   
+            Serial.println();      
             return;                   
             } 
          if(statusDoBotaoPausa == HIGH){  // Se o botão pausar for pressionado
@@ -84,21 +85,7 @@ void loop(){
          valorAtual = cont * centimetrosPorCont;  // Inicia/atualiza a variável de controle    
          lcd.setCursor(9, 1);
          lcd.print(valorAtual);  // Mostra no Lcd
-
-              Serial.print("valorPedido ");
-     Serial.println(valorPedido);
-     Serial.print("valorConfigurado ");
-     Serial.println(valorConfigurado);
-     Serial.print("qtdEncoder ");
-     Serial.println(qtdEncoder);
-     Serial.print("cont ");
-     Serial.println(cont);
-     Serial.print("i ");
-     Serial.println(i);
-     Serial.print("p ");
-     Serial.println(p);
-     Serial.println();
-         
+     
          for(i; i < 1; i++){ // Imprime apenas uma vez na Serial
              Serial.println("Relé iniciada");
              Serial.println();
@@ -144,6 +131,7 @@ void loop(){
         lcd.print("Tamanho:      Cm");
        }
      if(tecla_pressionada == '#'){
+        Serial.println("Sistema resetado");
         cont = qtdEncoder + 1;
         digitalWrite(rele, LOW);                       
         resetar();
