@@ -1,4 +1,4 @@
-<h1>Controlando voltas de um motor</h1>
+<h1>Controlando voltas de um motor 2.0</h1>
 
 <p>
 Neste exemplo faremos o mesmo teste do sensor de contagem, porém iremos imprimir os valores recebidos em um Lcd 16x2
@@ -31,7 +31,6 @@ ___
 
 - IN --> Ligado diretamente ao Push Button
 </br>
-
 - NC (Normalmente Fechado) --> Não conectado
 
 - COM (Comum) --> 5v da <strong>fonte de bancada</strong>
