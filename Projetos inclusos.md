@@ -47,6 +47,6 @@ Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-M
 ---
 
 </br><h1>Contador Métrico</h1>
-- <b>Este é o projeto principal deste repositório.</b> O projeto consiste em criar uma forma de contabilizar o quanto um motor enrola de fita, fio ou outros produtos de uma maneira automática.
+- <b>Este é o projeto principal deste repositório.</b> O objetivo desse projeto é desenvolver um sistema automatizado para medir a quantidade de fita, fio ou outros materiais que um motor é capaz de enrolar. Para isso, buscamos criar uma solução que possa detectar o movimento do motor e calcular a quantidade de produto que foi processada de forma precisa e confiável. Com essa ferramenta, espera-se simplificar e otimizar processos que dependem da contagem manual desses materiais, proporcionando uma solução mais eficiente e precisa.
 
 Encontre esse projeto em: https://github.com/dornelesfernando/Projeto-Contador-Metrico/tree/main/Projeto%20Completo
