@@ -1,19 +1,22 @@
 <h1>Relé e Motor</h1>
 <div>
-Neste teste usamos uma relé para ligar e desligar um motor, além disso usamos 2 (dois) led's para indicar se o motor está ligado ou desligado.
+Neste teste, utilizamos um relé para controlar a ativação e desativação de um motor. Além disso, empregamos dois LEDs para indicar visualmente o estado do motor, se está ligado ou desligado.
 
 - Vermelho --> Desligado
 
 - Verde --> Ligado
 
 <div></br>
-<h1>Componentes usados</h1>
+<h1>Lista dos componentes utilizados:</h1>
 
-- 1 Protoboard
 - 1 Relé
-- 1 Push button
 - 1 Motor DC
-- 2 Led's (1 verde e 1 vermelho) <strong>Opicional</strong></div>
+- 2 Push button
+- 2 Led's (1 verde e 1 vermelho) <strong>Opicional</strong>
+- 2 Resistor 470Ω
+- 2 Resistor 1kΩ
+</div>
+
 
 <div></br>
 <h1>Conexões no arduino</h1>
