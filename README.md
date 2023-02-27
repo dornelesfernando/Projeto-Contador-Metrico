@@ -9,16 +9,3 @@
 
   Com base nesses dados, podemos calcular a quantidade de voltas necessárias para atingir a quantidade desejada de fita, utilizando a fórmula "Voltas = X" e, em seguida, a quantidade total de voltas necessárias para atingir a quantidade desejada de fita, utilizando a fórmula "voltas_totais = Quantidade_Desejada / voltas". Dessa forma, será possível contabilizar de forma precisa e eficiente a quantidade de fita enrolada pelo motor.
 </div>
-  
-<div> </br>
-<h2>lista dos materiais utilizados neste projeto:</h2>
-
-- 1 Teclado Matricial 3x4 de 12 teclas rígido
-- 1 Display LCD 16x2 com comunicação I2C
-- 1 Módulo Relé de 5V e 10A com 1 canal
-- 1 Sensor de Contagem - Chave Óptica para Encoder de 5mm
-- 1 Disco Encoder 5mm
-- 1 Motor Dc
-- 2 Push Button
-- 2 Resistores de 1kΩ
-</div>
