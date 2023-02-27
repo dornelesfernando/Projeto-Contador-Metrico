@@ -3,6 +3,12 @@
 Neste teste utilizaremos o teclado matricial pra enviar sinais para o serial arduino.
 
 <div></br>
+<h2>Lista dos componentes utilizados:</h2>
+
+- 1 Teclado Matricial 3x4 12 Teclas Rígido
+</div>
+
+<div></br>
 <h1>Conexões</h1>
 
 <stong>Teclado Matricial --> Arduino</stong>
