@@ -1,23 +1,22 @@
 <h1>Controlando voltas de um motor</h1>
 
 <p>
-Neste exemplo, utilizamos um Sensor de Velocidade/Contagem para monitorar o número de voltas de um motor. Para isso, anexamos um disco encoder ao motor para permitir que o sensor realize as leituras necessárias.
-
-</p>
+Neste exemplo, utilizamos um Sensor de Contagem - Chave Óptica para Encoder de 5mm para monitorar o número de voltas de um motor. Para isso, anexamos um disco encoder ao motor para permitir que o sensor realize as leituras necessárias.</p>
 
 <p>Para controlar a ativação e desativação do motor, utilizamos uma relé acionada por um Push Button</p>
-<div></br>
+<div>
 
 </br><h1>Lista dos componentes utilizados:</h1>
 
-- 1 Sensor de Velocidade/Contagem
+- 1 Sensor de Contagem - Chave Óptica para Encoder de 5mm
+- 1 Disco Encoder
 - 1 Relé
 - 1 Motor DC
 - 1 Push button
 - 1 Resistor 1kΩ
 </div>
 
-<h2>Conexões:</h2>
+</br><h2>Conexões:</h2>
 
 Componente --> Arduino
 ___
