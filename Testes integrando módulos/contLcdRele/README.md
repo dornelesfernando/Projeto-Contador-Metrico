@@ -1,7 +1,7 @@
 <h1>Automatizando voltas de um motor</h1>
 
 <p>
-Neste exemplo usamos um Sensor de Contagem - Chave Óptica para Encoder de 5mm para verificar a quantidade de voltas de um motor utilizando um encoder, após o usuário informar manualmente no código a quantidade de voltas que deseja que o motor de, um relé será ativado e fará essa quantia de voltas informadas pelo usuário.
+Neste exemplo, utilizamos um sensor de contagem, mais especificamente uma chave óptica, conectada a um encoder de 5mm, a fim de verificar a quantidade de voltas de um motor. O usuário informará manualmente no código a quantidade de voltas que deseja que o motor dê. Após essa informação ser registrada, um relé será ativado e fará o motor girar a quantidade de voltas especificada.
 </p></br>
 
 <div> </br>
