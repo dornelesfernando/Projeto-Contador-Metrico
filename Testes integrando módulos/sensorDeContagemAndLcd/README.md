@@ -1,10 +1,7 @@
 <h1>Controlando voltas de um motor 2.0</h1>
 
 <p>
-Neste exemplo faremos o mesmo teste do sensor de contagem, porém iremos imprimir os valores recebidos em um Lcd 16x2
-  
-Exemplo:
-Usamos um Sensor de Contagem - Chave Óptica para Encoder de 5mm para verificar a quantidade de voltas de um motor, para isso utilizamos um disco encoder preso ao motor para que o sensor possa realizar a leitura.
+Neste exemplo, utilizaremos novamente o sensor de contagem, que consiste em uma chave óptica conectada a um encoder de 5mm. Utilizaremos um disco encoder preso ao motor para que o sensor possa realizar a leitura da quantidade de voltas. Ao invés de apenas verificar a quantidade de voltas do motor, o valor recebido pelo sensor será impresso em um display LCD 16x2, permitindo que o usuário possa visualizar a informação de forma clara e precisa.
 </p>
 
 <p>Para ligar e desligar o motor utilizamos uma relé controlada por um Push Button</p>
