@@ -1,8 +1,18 @@
 <h1>Automatizando voltas de um motor</h1>
 
 <p>
-Neste exemplo usamos um Sensor de Velocidade/Contagem para verificar a quantidade de voltas de um motor utilizando um encoder, após o usuário informar manualmente no código a quantidade de voltas que deseja que o motor de, um relé será ativado e fará essa quantia de voltas informadas pelo usuário.
-</p>
+Neste exemplo usamos um Sensor de Contagem - Chave Óptica para Encoder de 5mm para verificar a quantidade de voltas de um motor utilizando um encoder, após o usuário informar manualmente no código a quantidade de voltas que deseja que o motor de, um relé será ativado e fará essa quantia de voltas informadas pelo usuário.
+</p></br>
+
+<div> </br>
+<h2>Lista dos materiais utilizados neste projeto:</h2>
+
+- 1 Display LCD 16x2 com comunicação I2C
+- 1 Módulo Relé de 5V e 10A com 1 canal
+- 1 Sensor de Contagem - Chave Óptica para Encoder de 5mm
+- 1 Disco Encoder 5mm
+- 1 Motor Dc
+</div>
 
 <div></br>
 <h2>Conexões:</h2>
@@ -10,7 +20,7 @@ Neste exemplo usamos um Sensor de Velocidade/Contagem para verificar a quantidad
 Componente --> Arduino
 ___
  
-<h2>Sensor de Velocidade/Contagem</h2>
+<h2>Sensor de Contagem - Chave Óptica para Encoder de 5mm</h2>
  
 - GND --> GND
 
