@@ -13,7 +13,6 @@ Neste exemplo, utilizamos um Sensor de Contagem - Chave Óptica para Encoder de 
 - 1 Relé
 - 1 Motor DC
 - 1 Push button
-- 1 Resistor 1kΩ
 </div>
 
 </br><h2>Conexões:</h2>
