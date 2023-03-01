@@ -1,6 +1,6 @@
 <h1>Teclado Matricial - Lcd 16x2</h1>
 
-Neste teste utilizaremos um lcd 16x2 para exibir as teclas digitadas em um teclado matricial 3x4.
+Neste teste, faremos uso de um teclado matricial 3x4 para que o usuário possa digitar valores de forma prática e eficiente. Para visualizar as teclas digitadas em tempo real, utilizaremos um display LCD 16x2 que exibirá as informações conforme forem inseridas no teclado.
 
 <div> </br>
 <h2>Lista dos materiais utilizados neste projeto:</h2>
