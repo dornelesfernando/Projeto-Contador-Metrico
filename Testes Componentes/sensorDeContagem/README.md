@@ -21,7 +21,7 @@ Neste exemplo, utilizamos um Sensor de Contagem - Chave Óptica para Encoder de 
 Componente --> Arduino
 ___
  
-<h2>Sensor de Velocidade/Contagem</h2>
+<h2>Sensor de Contagem - Chave Óptica para Encoder de 5mm</h2>
  
 - GND --> GND
 
