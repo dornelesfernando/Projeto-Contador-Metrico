@@ -2,6 +2,13 @@
 
 Neste teste utilizaremos um lcd 16x2 para exibir as teclas digitadas em um teclado matricial 3x4.
 
+<div> </br>
+<h2>Lista dos materiais utilizados neste projeto:</h2>
+
+- 1 Teclado Matricial 3x4 de 12 teclas rígido
+- 1 Display LCD 16x2 com comunicação I2C
+</div>
+
 <div></br>
 <h1>Conexões</h1>
 
