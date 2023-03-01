@@ -4,10 +4,21 @@
 Neste exemplo faremos o mesmo teste do sensor de contagem, porém iremos imprimir os valores recebidos em um Lcd 16x2
   
 Exemplo:
-Usamos um Sensor de Velocidade/Contagem para verificar a quantidade de voltas de um motor, para isso utilizamos um disco encoder preso ao motor para que o sensor possa realizar a leitura.
+Usamos um Sensor de Contagem - Chave Óptica para Encoder de 5mm para verificar a quantidade de voltas de um motor, para isso utilizamos um disco encoder preso ao motor para que o sensor possa realizar a leitura.
 </p>
 
 <p>Para ligar e desligar o motor utilizamos uma relé controlada por um Push Button</p>
+
+<div> </br>
+<h2>Lista dos materiais utilizados neste projeto:</h2>
+
+- 1 Display LCD 16x2 com comunicação I2C
+- 1 Módulo Relé de 5V e 10A com 1 canal
+- 1 Sensor de Contagem - Chave Óptica para Encoder de 5mm
+- 1 Disco Encoder 5mm
+- 1 Motor Dc
+- 1 Push Button
+</div>
 
 <div></br>
 <h2>Conexões:</h2>
@@ -15,7 +26,7 @@ Usamos um Sensor de Velocidade/Contagem para verificar a quantidade de voltas de
 Componente --> Arduino
 ___
  
-<h2>Sensor de Velocidade/Contagem</h2>
+<h2>Sensor de Contagem - Chave Óptica para Encoder de 5mm</h2>
  
 - GND --> GND
 
