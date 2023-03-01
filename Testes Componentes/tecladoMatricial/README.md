@@ -1,6 +1,6 @@
 <h1>Teclado Matricial - Serial Arduino</h1>
 
-Neste teste utilizaremos o teclado matricial pra enviar sinais para o serial arduino.
+Neste teste, utilizaremos um teclado matricial para enviar sinais para o microcontrolador Arduino. Para isso, faremos uso da comunicação serial, que permitirá a transmissão dos dados de forma rápida e confiável.
 
 <div></br>
 <h2>Lista dos componentes utilizados:</h2>
