@@ -34,7 +34,7 @@ ___
 
 - DC- --> GND
 
-- IN --> Ligado diretamente ao Push Button
+- IN --> Pino 13
 </br>
 
 - NC (Normalmente Fechado) --> Não conectado
