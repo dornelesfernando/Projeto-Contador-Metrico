@@ -32,3 +32,75 @@ processos industriais.
 - 2 Push Button
 - 2 Resistores de 1kΩ
 </div>
+
+<h2>Conexões:</h2>
+
+Componente --> Arduino
+___
+ 
+<h2>Teclado Matricial 3x4 de 12 teclas rígido</h2>
+
+- Pino 1 --> Não conectado
+- Pino 2 --> Porta 9
+- Pino 3 --> Porta 4
+- Pino 4 --> Porta 10
+- Pino 5 --> Porta 7
+- Pino 6 --> Porta 8
+- Pino 7 --> Porta 6
+- Pino 8 --> Porta 5
+- Pino 9 --> Não conectado
+ 
+</br><h2>Lcd 16x2 I2C:</h2>
+
+- GND --> GND
+
+- VCC --> 5v
+
+- SDA --> Porta Analogica A4
+
+- SCL --> Porta Analogica A5
+ 
+ </br><h2>Relé</h2>
+
+- DC+ --> 5v
+
+- DC- --> GND
+
+- IN --> Pino 13 
+</br>
+- NC (Normalmente Fechado) --> Não conectado
+
+- COM (Comum) --> 5v (ou Voltangem necessária para usar o motor) da <strong>fonte de bancada</strong>
+
+- NO (Normalmente Aberto) --> VCC do <strong>motor</strong>
+
+</br><h2>Motor</h2>
+
+- GND --> GND da <strong>fonte de bancada</strong>
+
+- VCC --> NO da <strong>relé</strong>
+ 
+</br><h2>Sensor de Contagem - Chave Óptica para Encoder de 5mm</h2>
+ 
+- GND --> GND
+
+- VCC --> 5v
+
+- D0 --> Porta Digital 3
+
+</br><h2>Push Button 1</h2>
+ 
+- VCC --> 5v
+
+- GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong>
+
+- Sinal --> Porta 11
+
+</br><h2>Push Button 2</h2>
+ 
+- VCC --> 5v
+ 
+- GND --> GND ligado a um resitor de <strong>1KΩ</strong> realizando um <strong>pull-down</strong>
+ 
+- Sinal --> Porta 12
+</div>
