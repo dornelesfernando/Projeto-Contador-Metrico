@@ -16,6 +16,8 @@ Componente --> Arduino
 
 ___
 
+<h2>Teclado Matricial 3x4 de 12 teclas rígido</h2>
+
 - Pino 1 --> Não conectado
 - Pino 2 --> Porta 9
 - Pino 3 --> Porta 4
