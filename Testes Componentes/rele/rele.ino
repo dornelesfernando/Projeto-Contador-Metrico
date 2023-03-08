@@ -8,38 +8,42 @@ int statusDoBotaoLiga = 0;
 const int botaoDesliga = 12;  // Botão conectado a porta 12 do arduino
 int statusDoBotaoDesliga = 0;  
 
-int  led1 = 2, led2 = 5; // Led que irão indicar se o motor está ligado ou desligado
+int  ledVemelho = 2, ledVerde = 5; // Led que irão indicar se o motor está ligado ou desligado
 
 
 void setup (){
-    pinMode(led1, OUTPUT);
-    pinMode(led2, OUTPUT);
+    pinMode(ledVemelho, OUTPUT);
+    pinMode(ledVerde, OUTPUT);
     pinMode(rele, OUTPUT);
     pinMode(botaoLiga, INPUT);
     pinMode(botaoDesliga, INPUT);
 
     Serial.begin(9600);
-    Serial.print("Teste Relé");
-    Serial.println("");
+    Serial.println("Teste Relé");
+    Serial.println("-----------------");
+
+    digitalWrite(ledVemelho, HIGH);
+    digitalWrite(ledVerde, LOW);
+    digitalWrite(rele, LOW);
 }
 
 void loop (){
-  
     statusDoBotaoLiga = digitalRead(botaoLiga);  
+    statusDoBotaoDesliga = digitalRead(botaoDesliga);
         if (statusDoBotaoLiga == HIGH){  // Relé ligada
-        digitalWrite(led1, LOW);
-        digitalWrite(led2, HIGH);
+        digitalWrite(ledVemelho, LOW);
+        digitalWrite(ledVerde, HIGH);
         digitalWrite(rele, HIGH);
-        Serial.println("Relé Ligada");
+        Serial.println("- Relé Ligada");
+        Serial.println();
         delay(150);
-    }
-
-    statusDoBotaoDesliga = digitalRead(botaoDesliga);  
+    }  
         if (statusDoBotaoDesliga == HIGH){  // Relé Desligada
-        digitalWrite(led1, HIGH);
-        digitalWrite(led2, LOW);
+        digitalWrite(ledVemelho, HIGH);
+        digitalWrite(ledVerde, LOW);
         digitalWrite(rele, LOW);
         Serial.println("Relé Desligada");
+        Serial.println();
         delay(150);
     }
 }
