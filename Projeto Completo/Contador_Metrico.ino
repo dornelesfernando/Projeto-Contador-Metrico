@@ -1,4 +1,4 @@
-#include <Keypad.h>  // Bibliteca do Teclado
+#include <Keypad.h>  // Biblioteca do Teclado
 #include <Wire.h>  // Biblioteca LCD
 #include <LiquidCrystal_I2C.h>  // Biblioteca LCD
 
@@ -7,7 +7,7 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // lcd(Endereço I2C, Colunas, Linhas)
 
   // Variáveis
-// Definindo pinos de linhas e colunas conecadas no arduino
+// Definindo pinos de linhas e colunas conectadas no arduino
 byte pinosLinhas[ ]  = {4,5,6,7};
 byte pinosColunas[ ] = {10,9,8};
 
@@ -32,7 +32,7 @@ int statusDoBotaoPausa = 0;
 
 // Variáveis gerais
 int valorPedido = 0;  // Armazena o valor informado pelo usuário
-float centimetrosPorCont = 0.5;  // Alterar para o valor em centimetros que seu motor faz por volta ***********
+float centimetrosPorCont = 0.5;  // Alterar para o valor em centímetros que seu motor faz por volta ***********
 int qtdEncoder = 0;  // Armazena a quantidade de voltas que o motor terá que dar para satisfazer o pedido do usuário
 int valorAtual = 0;  // Monitora a distância já percorrida
 static String valorConfigurado = "";
@@ -124,7 +124,7 @@ void loop(){
      if(tecla_pressionada == '*'){  // Limpa o valor informado pelo Usuário
         Serial.println("Valor indicado pelo usuário resetado");
         Serial.println();
-        p = 0;  // reseta a variável responsavel pelo controle de uma informação no serial monitor
+        p = 0;  // reseta a variável responsável pelo controle de uma informação no serial monitor
         valorConfigurado = "";
         valorPedido = 0;
         qtdEncoder = 0;
@@ -141,11 +141,11 @@ void loop(){
    }             
 }
 
-void interrupcao (){  // Função responsavel pelo controle do motor usando o encoder e o Sensor de Contagem
+void interrupcao (){  // Função responsável pelo controle do motor usando o encoder e o Sensor de Contagem
     cont++;
 }
 
-void resetar(){  // Função responsavel por resetar as variáveis de contrle do sistema 
+void resetar(){  // Função responsável por resetar as variáveis de contrle do sistema 
   valorConfigurado = "";
   valorPedido = 0;
   qtdEncoder = 0;
@@ -155,7 +155,7 @@ void resetar(){  // Função responsavel por resetar as variáveis de contrle do
   cont = 0;
 }
 
-void completo(){  // Função responsavel por reiniciar parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
+void completo(){  // Função responsável por reiniciar parcialmente o sistema, não reseta as variáveis de controle dos valores informados pelo usuário   
   i = 0;
   p = 0;
   cont = 0;  
