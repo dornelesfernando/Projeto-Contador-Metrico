@@ -9,3 +9,6 @@
 
   Com base nesses dados, podemos calcular a quantidade de voltas necessárias para atingir a quantidade desejada de fita, utilizando a fórmula "Voltas = X" e, em seguida, a quantidade total de voltas necessárias para atingir a quantidade desejada de fita, utilizando a fórmula "voltas_totais = Quantidade_Desejada / voltas". Dessa forma, será possível contabilizar de forma precisa e eficiente a quantidade de fita enrolada pelo motor.
 </div>
+
+</br><h1>Link do Artigo publicado do projeto:</h1> 
+https://www.usinainfo.com.br/blog/projeto-contador-de-fio-eletronico-com-arduino/
